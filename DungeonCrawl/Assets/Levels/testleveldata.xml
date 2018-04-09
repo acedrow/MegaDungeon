@@ -1,0 +1,40 @@
+
+
+<!-- Mockup for the xml format for holding out level data
+
+- root element is the level
+- level is the parent of a series of room elements, each room has an attribute denoting the size of the room as a coordinate point (x,y) - width,height.
+- rooms have tile elements, with an attribute denoting the tile's coordinate within the room.
+	-(note, these coordinates start at 0,0, representing the lower left hand tile. Thus, in a 5x5 room, the upper right hand tile would have the coordinate 4,4) 
+- tile elements ,may have features (things that occupy the center of the square, pillars, altars, - DO FEATURES /ALWAYS/ BLOCK MOVEMENT?)
+- tile elements cmay have edgeFeatures (usually doors and walls), which occupy one edge of the tile, will have a direction integer, corresponding to a cardinal direction: 0 is north, 1 east, 2 south, and 3 west.
+
+-->
+
+<!--
+
+Example room, 5 tiles by 5 tiles in size, has a door in the middle of the north wall, with a acid trap pressure plate on the same tile. An altar lies in the center of the room, and there is a pillar in each corner.
+
+-->
+
+<level>
+	<room size = "5,5">
+		<size> 5,5 </size>
+		<tile coordinate="2,4">
+			<edgeFeature direction="0"> door </edgeFeature>
+			<trap type="pressure">
+				<damage type="acid"> 4d8 </damage></trap></tile>
+		<tile coordinate="2,2">
+			<feature> altar </feature> </tile>
+		<tile coordinate="0,0"> 
+			<feature> pillar </feature></tile>
+		<tile coordinate="0,4"> 
+			<feature> pillar </feature></tile>
+		<tile coordinate="4,0"> 
+			<feature> pillar </feature></tile>
+		<tile coordinate="4,4"> 
+			<feature> pillar </feature></tile>
+	</room>
+	<room>
+	</room>
+</level>
