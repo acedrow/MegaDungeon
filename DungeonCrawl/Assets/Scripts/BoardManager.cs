@@ -8,8 +8,10 @@ public class BoardManager : MonoBehaviour
 {
 	public GameObject gameManagerObject;
 	public GameObject tileObjectPrefab;
+	//public GameObject uiManagerObject;
 	Room currentRoom;
 	GameManager gameManager;
+	UIManager uiManager;
 
 	Room testRoom;
 
@@ -28,6 +30,7 @@ public class BoardManager : MonoBehaviour
 	void setup ()
 	{
 		gameManager = gameManagerObject.GetComponent <GameManager> ();
+		//uiManager = uiManagerObject.GetComponent <UIManager> ();
 		//hardcoded stuff to create a sample room, in the future will have to pull this data from an xml layout file.
 		GameObject testRoomGameObject = new GameObject ();
 		Room room = testRoomGameObject.AddComponent <Room> ();
@@ -99,7 +102,8 @@ public class BoardManager : MonoBehaviour
 		if (dir < 0 || dir > 3 || charObjectToMove == null || destination == null) {
 			return false;
 		} 
-			
+
+		UIManager.toTextFeed ("Attempt move dir:" + dir);
 		charObjectToMove.transform.position = destination.transform.position;
 		charObjectToMove.GetComponent <Character> ().setTileGameObject (destination);
 		return true;

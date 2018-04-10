@@ -51,13 +51,4 @@ public class PartyManager : MonoBehaviour
 		//activeCharacter = activeCharacterObject.GetComponent <Character> ();
 
 	}
-
-	/*
-	 * For now, movement is only 1 square at a time, can't move through occupied squares at all
-	 * eventually, want some way to move through enemy squares
-	 */
-	void attemptMove (int dir)
-	{
-		boardManager.attemptMove (activeCharacterObject, dir);
-	}
 }
