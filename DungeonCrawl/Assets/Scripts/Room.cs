@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Monobehavior room class to be instantiated.
+ */
 
 public class Room : MonoBehaviour
 {

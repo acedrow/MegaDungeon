@@ -19,7 +19,6 @@ Example room, 5 tiles by 5 tiles in size, has a door in the middle of the north 
 
 <level>
 	<room size = "5,5">
-		<size> 5,5 </size>
 		<tile coordinate="2,4">
 			<edgeFeature direction="0"> door </edgeFeature>
 			<trap type="pressure">
