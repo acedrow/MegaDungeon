@@ -8,8 +8,8 @@ public class TextFeedManager: MonoBehaviour
 	public Text text;
 	private int i;
 	public bool stop;
-	public GameObject scrollbarObject;
-	Scrollbar scrollbar;
+	public GameObject scrollrectObject;
+	ScrollRect scrollrect;
 
 	// Use this for initialization
 	void Start ()
@@ -19,16 +19,28 @@ public class TextFeedManager: MonoBehaviour
 
 	public void toTextFeed (string m)
 	{
-		string output = "\n" + ">" + m;
+		//actual output should be on a new line, the carrot is optional
+		string output = "\n" + " >" + m;
 		text.text += output;
-		scrollbar.value = 0;
+		StartCoroutine (scrollToBottom ());
+	}
+
+	/*
+	 * A coroutine to set the scroll bar to the bottom, necesasry to do this in a coroutine
+	 * so that we can wait until the end of the frame,
+	 * otherwise, the scrollbar will scroll down before the new scrollbar size is calculated,
+	 */
+	IEnumerator scrollToBottom ()
+	{
+		yield return new WaitForEndOfFrame ();
+		scrollrect.gameObject.SetActive (true);
+		scrollrect.verticalNormalizedPosition = 0f;
 	}
 
 	void setup ()
 	{
-		scrollbar = scrollbarObject.GetComponent <Scrollbar> ();
+		scrollrect = scrollrectObject.GetComponent <ScrollRect> ();
 	}
-
 	// Update is called once per frame
 	void Update ()
 	{

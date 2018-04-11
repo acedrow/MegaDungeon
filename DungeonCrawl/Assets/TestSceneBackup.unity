@@ -765,7 +765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1497086914}
   stop: 0
-  scrollbarObject: {fileID: 101740812}
+  scrollrectObject: {fileID: 1286160673}
 --- !u!114 &1497086914
 MonoBehaviour:
   m_ObjectHideFlags: 0

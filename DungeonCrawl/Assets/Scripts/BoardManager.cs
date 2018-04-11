@@ -103,7 +103,7 @@ public class BoardManager : MonoBehaviour
 			return false;
 		} 
 
-		UIManager.toTextFeed ("Attempt move dir:" + dir);
+		UIManager.toTextFeed ("Attempt <color=#ff0000ff>move</color> dir:" + dir);
 		charObjectToMove.transform.position = destination.transform.position;
 		charObjectToMove.GetComponent <Character> ().setTileGameObject (destination);
 		return true;
