@@ -28,7 +28,7 @@ public class Character : MonoBehaviour
 		return currentTile;
 	}
 
-	public TileData getTileData ()
+	public TileDataOriginal getTileData ()
 	{
 		return currentTile.GetComponent <TileObject> ().getTileData ();
 	}

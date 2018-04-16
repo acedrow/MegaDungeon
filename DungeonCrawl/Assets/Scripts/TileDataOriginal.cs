@@ -9,9 +9,12 @@ using UnityEngine;
  *
  *applicable constants and types (e.g. floortype enum) should be declared here and 
  *copied in Tile, not vice-versa.
+ *
+ *ORIGINAL, STANDALONE CLASS USED IN EARLY TESTING.
+ *Final(er) version will be integrated with the XML-serializable master data class.
  */
 
-public class TileData
+public class TileDataOriginal
 {
 	//CONSTANTS:
 	//the maximum value for an edge feature
@@ -38,7 +41,7 @@ public class TileData
 	bool passable;
 
 	//NO ARG CONSTRUCTOR
-	public TileData ()
+	public TileDataOriginal ()
 	{
 		//Floor type detault is stone.
 		floorType = tileFloorType.stone;
@@ -51,7 +54,7 @@ public class TileData
 		edgeFeature = new int[4];
 	}
 
-	public TileData (Vector2 c)
+	public TileDataOriginal (Vector2 c)
 	{
 		floorType = tileFloorType.stone;
 		coordinate = c;

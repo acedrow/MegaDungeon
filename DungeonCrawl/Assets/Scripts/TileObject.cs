@@ -12,7 +12,7 @@ using UnityEngine;
 
 public class TileObject : MonoBehaviour
 {
-	TileData tileData;
+	TileDataOriginal tileDataOriginal;
 	Vector2 coordinate;
 	Room parentRoom;
 
@@ -25,7 +25,7 @@ public class TileObject : MonoBehaviour
 	void OnMouseOver ()
 	{
 		if (Input.GetMouseButtonDown (0))
-			Debug.Log ("tile " + tileData.getCoordinates ().x + "," + tileData.getCoordinates ().y + "left click.");
+			Debug.Log ("tile " + tileDataOriginal.getCoordinates ().x + "," + tileDataOriginal.getCoordinates ().y + "left click.");
 		
 
 		if (Input.GetMouseButtonDown (1))
@@ -33,15 +33,15 @@ public class TileObject : MonoBehaviour
 	}
 
 	//MAKE SURE TO CALL WHEN THE TILE IS INSTANTIATED
-	public void setup (Room parent, TileData t)
+	public void setup (Room parent, TileDataOriginal t)
 	{
-		tileData = t;
+		tileDataOriginal = t;
 		parentRoom = parent;
 	}
 
 	public bool getOccupied ()
 	{
-		return tileData.getOccupied ();
+		return tileDataOriginal.getOccupied ();
 	}
 
 	/*
@@ -51,22 +51,22 @@ public class TileObject : MonoBehaviour
 
 	public Vector2 getCoordinates ()
 	{
-		return tileData.getCoordinates ();
+		return tileDataOriginal.getCoordinates ();
 	}
 
 	public int getEdgeFeature (int index)
 	{
-		return tileData.getEdgeFeature (index);
+		return tileDataOriginal.getEdgeFeature (index);
 	}
 
-	public TileData.tileFloorType getTileFloorType ()
+	public TileDataOriginal.tileFloorType getTileFloorType ()
 	{
-		return tileData.getTileFloorType ();
+		return tileDataOriginal.getTileFloorType ();
 	}
 
-	public TileData getTileData ()
+	public TileDataOriginal getTileData ()
 	{
-		return tileData;
+		return tileDataOriginal;
 	}
 		
 }

@@ -11,7 +11,7 @@ public class Room : MonoBehaviour
 	//coordinate point indicating the size of the room, x by y
 	public Vector2 roomsize;
 	//array to hold tileData objects for this room, this will likely be hardcoded and brought in from a levelData-thingy
-	public TileData[,] tileData;
+	public TileDataOriginal[,] tileData;
 	//array to hold instantiated tileObjects
 	public GameObject[,] tileObject;
 
@@ -30,7 +30,7 @@ public class Room : MonoBehaviour
 	public void setup (Vector2 rs)
 	{
 		roomsize = rs;
-		tileData = new TileData[(int)rs.x, (int)rs.y];
+		tileData = new TileDataOriginal[(int)rs.x, (int)rs.y];
 		tileObject = new GameObject[(int)rs.x, (int)rs.y];
 		setupTiles ();
 	}
@@ -45,23 +45,23 @@ public class Room : MonoBehaviour
 	{
 		for (int x = 0; x < roomsize.x; x++) {
 			for (int y = 0; y < roomsize.y; y++) {
-				TileData toAddTile = new TileData (new Vector2 (x, y));
+				TileDataOriginal toAddTile = new TileDataOriginal (new Vector2 (x, y));
 
 				//if we're on the bottom row, set south wall
 				if (x == 0) {
-					toAddTile.setEdgeFeature (2, TileData.EDGE_FEATURE_WALL);
+					toAddTile.setEdgeFeature (2, TileDataOriginal.EDGE_FEATURE_WALL);
 				}
 				//if left colum, set west wall
 				if (y == 0) {
-					toAddTile.setEdgeFeature (3, TileData.EDGE_FEATURE_WALL);
+					toAddTile.setEdgeFeature (3, TileDataOriginal.EDGE_FEATURE_WALL);
 				}
 				//if top row, set north wall
 				if (x == roomsize.x - 1) {
-					toAddTile.setEdgeFeature (0, TileData.EDGE_FEATURE_WALL);
+					toAddTile.setEdgeFeature (0, TileDataOriginal.EDGE_FEATURE_WALL);
 				}
 				//if right column, set east wall
 				if (y == roomsize.y - 1) {
-					toAddTile.setEdgeFeature (1, TileData.EDGE_FEATURE_WALL);
+					toAddTile.setEdgeFeature (1, TileDataOriginal.EDGE_FEATURE_WALL);
 				}
 
 				tileData [x, y] = toAddTile;
@@ -91,7 +91,7 @@ public class Room : MonoBehaviour
 		}
 	}
 
-	public TileData getTileData (Vector2 pos)
+	public TileDataOriginal getTileData (Vector2 pos)
 	{
 		if (pos.x < 0 || pos.x > roomsize.x - 1 || pos.y < 0 || pos.y > roomsize.y - 1) {
 			return null;
